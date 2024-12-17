@@ -116,7 +116,7 @@ async fn main() -> Result<()> {
     // トピックにサブスクライブします。
 
     let bootnodes: [(Multiaddr,PeerId); 1] = [
-        (Multiaddr::from_str("/ip4/172.17.0.1/tcp/33749")?,PeerId::from_str("12D3KooWBk8UF3zfZJb7r8NraocrvEY2vwvFZfCnGWRG7Zkzs8Ji")?),
+        (Multiaddr::from_str("/ip6/::1/tcp/33749")?,PeerId::from_str("12D3KooWBk8UF3zfZJb7r8NraocrvEY2vwvFZfCnGWRG7Zkzs8Ji")?),
     ];
     // ブートノードのアドレスとピアIDを設定します。
 
@@ -142,7 +142,7 @@ async fn main() -> Result<()> {
     swarm.behaviour_mut().kademlia.get_closest_peers(to_search);
     // 最も近いピアを検索します。
 
-    swarm.listen_on("/ip4/0.0.0.0/tcp/0".parse()?)?;
+    swarm.listen_on("/ip6/::0/tcp/0".parse()?)?;
     // 全てのインターフェースでリッスンします。
 
     let mut stdin = io::BufReader::new(io::stdin()).lines();
